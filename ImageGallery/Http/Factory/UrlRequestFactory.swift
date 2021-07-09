@@ -23,6 +23,8 @@ class URLRequestFactory {
             
             if let credentials = HttpUtil.getCredentials() {
                 request.addValue("Client-ID \(credentials.clientId)", forHTTPHeaderField: "authorization")
+                request.httpMethod = "GET"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 return request
             }
         }
